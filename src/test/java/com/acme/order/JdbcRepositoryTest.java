@@ -16,8 +16,13 @@ public class JdbcRepositoryTest {
 	JdbcOrderRepository jdbcOrderRepository;
 
 	@Test
+	public void findByOrderStatusTest() {
+		jdbcOrderRepository.findByOrderStatus(OrderStatus.CREATED);
+	}
+
+	@Test
 	public void getByPizzaOrderId() {
-		jdbcOrderRepository.get("1");
+		jdbcOrderRepository.get("LARGE");
 	}
 
 	@Test
