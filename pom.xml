@@ -82,10 +82,11 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.36</version>
 		</dependency>
+
 		<dependency>
-			<groupId>commons-pool</groupId>
-			<artifactId>commons-pool</artifactId>
-			<version>1.6</version>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-dbcp2</artifactId>
+			<version>2.1</version>
 		</dependency>
 
 

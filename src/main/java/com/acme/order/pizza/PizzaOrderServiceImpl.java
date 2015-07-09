@@ -3,8 +3,6 @@ package com.acme.order.pizza;
 import java.util.Date;
 import java.util.List;
 
-import lombok.extern.slf4j.Slf4j;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +15,8 @@ import com.acme.order.notification.DeliveryTemplate;
 import com.acme.order.notification.MailSender;
 import com.acme.order.notification.MessageTemplateService;
 import com.acme.order.notification.OrderCancelledTemplate;
+
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Service

@@ -1,15 +1,19 @@
 package com.acme.order.application;
 
-import lombok.extern.slf4j.Slf4j;
+import javax.sql.DataSource;
 
+import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 import com.acme.order.Customer;
 import com.acme.order.pizza.PizzaOrderService;
 import com.acme.order.pizza.PizzaType;
+
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Configuration
@@ -37,6 +41,16 @@ public class SpringAnnotationBasedApplication {
 		log.info("Delivered orders:{}", orderService.fetchDelivered());
 		log.info("Cancelled orders:{}", orderService.fetchCancelled());
 		log.info("Unprocessed orders:{}", orderService.fetchUnprocessed());
+	}
+
+	@Bean
+	public DataSource dataSource() {
+		BasicDataSource basicDataSource = new BasicDataSource();
+		basicDataSource.setDriverClassName("com.mysql.jdbc.Driver");
+		basicDataSource.setUrl("jdbc:mysql://localhost:3306/pizza-tutorial");
+		basicDataSource.setUsername("dbuser");
+		basicDataSource.setPassword("dbpass");
+		return basicDataSource;
 	}
 
 }
