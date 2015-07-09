@@ -45,13 +45,10 @@ public class JdbcOrderRepository implements OrderRepository {
 
 	@Override
 	public String save(PizzaOrder order) {
-		final String INSERT_SQL = "INSERT INTO order_t (customer_id,status,type,estimatedDeliveryTime,finishTime) VALUES (?,?,?,?,?)";
-		try (Connection conn = dataSource.getConnection()) {
+		final String INSERT_ORDER_SQL = "INSERT INTO order_t (customer_id,status,type,estimatedDeliveryTime,finishTime) VALUES (?,?,?,?,?)";
+		final String INSERT_CUSTOMER_SQL = "INSERT INTO customer_t (name,email,address) VALUES (?,?,?)";
+		final String UPDATE_SQL = "UPDATE customer_t SET name=?,email=?,address=? WHERE id = ?";
 
-		} catch (SQLException e) {
-			log.error("SQL error", e);
-			throw new RuntimeException("Error while saving order", e);
-		}
 		return null;
 	}
 
